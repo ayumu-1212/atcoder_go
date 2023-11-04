@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"math/big"
 	"os"
 	"sort"
@@ -17,10 +18,6 @@ func init() {
 	sc.Buffer(buf, max)
 }
 
-func main() {
-	StrToInt(NextLine(sc))
-}
-
 // Reverse 文字列を反転
 func Reverse(s string) string {
 	runes := []rune(s)
@@ -32,7 +29,8 @@ func Reverse(s string) string {
 
 // NextLine buinfo.Scanのポインタを渡し、標準入力の次の行を読み込み
 // ex. sc := buinfo.NewScanner(os.stdin)
-//      GetNextLine(sc)
+//
+//	GetNextLine(sc)
 func NextLine(sc *bufio.Scanner) string {
 	sc.Scan()
 	s := sc.Text()
@@ -130,4 +128,11 @@ func Combination(n int, k int) *big.Int {
 // Homogeneous Hの計算
 func Homogeneous(n int, k int) *big.Int {
 	return Combination(n+k-1, k)
+}
+
+// =======================================
+
+func main() {
+	args := SplitIntlist(NextLine(sc))
+	fmt.Println(args)
 }
